@@ -1,0 +1,22 @@
+{% extends "admin/change_form.html" %}
+{% load i18n %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <style type="text/css">
+        .chart_title {
+            font-weight: bold;
+            font-size: 14px;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div id="content-main">
+
+        <div class="chart_title">
+            {% trans "Custom Bar Chart" %}
+        </div>
+        {{ figure|safe }}
+    </div>
+{% endblock %}

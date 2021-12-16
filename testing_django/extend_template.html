@@ -1,0 +1,51 @@
+{% extends "index.html" %}
+
+{% block check-extends %}
+<div id="column-left">
+    <div class="header">
+      Date Input
+    </div>
+   
+  <div class="search-container">
+    <form action="{% url 'get_data' %}" method="post">
+      {% csrf_token %}
+      {{ timeform}}
+      <input type="Submit" name="submit" formmethod="post" value="Submit"/>
+      
+    </form>
+    {% if data %} 
+      {{data}}
+      {% endif %}
+<!-- 
+      {% if track_info %} 
+      {{track_info}}
+      {% endif %} -->
+
+      {% if track_number %} 
+      {{track_number}}
+      {% endif %}
+  </div>
+
+          </div>
+         
+  <div class="column-middle">
+          <div class="header">
+      Map Display
+    </div>
+    
+    <div id="map-display">
+     {{ figure|safe}}
+  </div>
+</div> 
+    <div class="column-right">
+    <div class="header">
+      Track Input
+    </div>
+    <div class="search-container">
+    <form action="{% url 'pick_track' %}" method="POST">
+      {% csrf_token %}
+      {{ trackform.as_p}}
+      <input type="Submit" name="submit" value="Submit">
+    </form>
+    </div>
+{% endblock %}

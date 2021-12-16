@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block chart-display %}
+
+{% if popup %}
+    <div id="pop-up">
+        {{ chlfig|safe}}
+    </div>
+{% endif %}
+
+{% endblock %}
